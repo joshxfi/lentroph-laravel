@@ -13,13 +13,13 @@ export default function Welcome({ auth }: PageProps) {
             <ApplicationLogo className="h-58" />
 
             <header className="mt-52">
-              <h1 className="text-6xl font-bold leading-tight text-zinc-700">
+              <h1 className="text-5xl font-bold leading-tight text-zinc-700">
                 Connecting organizations
                 <br />
                 for a better tomorrow
               </h1>
 
-              <p className="mt-6 max-w-2xl text-2xl text-zinc-700">
+              <p className="mt-6 max-w-2xl text-xl text-zinc-700">
                 Lentroph&apos;s innovative partnership technology is bringing
                 the latest collaborative innovations to show around the world.
               </p>
