@@ -57,11 +57,11 @@ export default function Welcome({ auth }: PageProps) {
 
         <div className="absolute z-20 h-full w-full bg-[#F586FF] opacity-30" />
 
-          <img
-            src="/images/homepage.jpg"
-            alt="children"
-            className="object-cover"
-          />
+        <img
+          src="/images/homepage.jpg"
+          alt="children"
+          className="object-cover"
+        />
       </section>
     </>
   );
