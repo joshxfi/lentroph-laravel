@@ -24,6 +24,8 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "@nextui-org/react": "^2.2.9",
+        "framer-motion": "^11.0.6",
         "tailwind-merge": "^2.2.1"
     }
 }
