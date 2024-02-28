@@ -4,7 +4,13 @@ import { PageProps } from "@/types";
 import Post from "@/Components/Post";
 import AddPost from "./Partials/AddPost";
 
-export default function Feed({ auth }: PageProps) {
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+}
+
+export default function Feed({ auth, posts }: PageProps) {
   return (
     <AuthenticatedLayout
       user={auth.user}
@@ -20,8 +26,10 @@ export default function Feed({ auth }: PageProps) {
         <AddPost />
 
         <div className="space-y-8">
-          <Post />
-          <Post />
+          {/* @ts-ignore */}
+          {posts.reverse().map((post: Post) => (
+            <Post key={post.id} content={post.content} />
+          ))}
           <Post />
           <Post />
         </div>

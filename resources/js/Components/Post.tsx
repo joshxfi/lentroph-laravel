@@ -8,7 +8,7 @@ import {
   Button,
 } from "@nextui-org/react";
 
-export default function Post() {
+export default function Post({ content }: { content?: string }) {
   const [isFollowed, setIsFollowed] = React.useState(false);
 
   return (
@@ -47,9 +47,8 @@ export default function Post() {
       </CardHeader>
       <CardBody className="px-3 text-base text-default-400">
         <p>
-          Together, let's commit to sustainable practices and show our love for
-          the planet we call home. Together, we can create a greener, healthier
-          future for generations to come. 🌱💫
+          {content ||
+            "Together, let's commit to sustainable practices and show our love for the planet we call home. Together, we can create a greener, healthier future for generations to come. 🌱💫"}
         </p>
         <span className="pt-2">
           #SustainableLiving #LoveOurPlanet

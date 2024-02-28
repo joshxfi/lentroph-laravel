@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,18 +27,22 @@ Route::get('/dashboard', function () {
   return Inertia::render('Dashboard/Overview');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/feed', function () {
-  return Inertia::render('Feed/Display');
-})->middleware(['auth', 'verified'])->name('feed');
+Route::get(
+  '/feed',
+  [PostController::class, "index"]
+)->middleware(['auth', 'verified'])->name('feed');
 
 Route::get('/profile', function () {
   return Inertia::render('Profile/Display');
 })->middleware(['auth', 'verified'])->name('profile');
 
+
 Route::middleware('auth')->group(function () {
   Route::get('/settings', [SettingsController::class, 'edit'])->name('settings.edit');
   Route::patch('/settings', [SettingsController::class, 'update'])->name('settings.update');
   Route::delete('/settings', [SettingsController::class, 'destroy'])->name('settings.destroy');
+
+  Route::post('/post', [PostController::class, 'store'])->name('post.store');
 });
 
 require __DIR__ . '/auth.php';

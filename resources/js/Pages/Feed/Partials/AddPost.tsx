@@ -3,13 +3,15 @@ import { Button, Textarea } from "@nextui-org/react";
 
 export default function AddPost() {
   const { data, setData, post, processing } = useForm({
+    title: "testing",
     content: "",
   });
 
   const submit: React.FormEventHandler = (e) => {
     e.preventDefault();
 
-    post(route("post"));
+    post(route("post.store"));
+    setData({ title: "testing", content: "" });
   };
 
   return (
