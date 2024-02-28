@@ -30,6 +30,10 @@ Route::get('/feed', function () {
   return Inertia::render('Feed');
 })->middleware(['auth', 'verified'])->name('feed');
 
+Route::get('/profile', function () {
+  return Inertia::render('Profile/Display');
+})->middleware(['auth', 'verified'])->name('profile');
+
 Route::middleware('auth')->group(function () {
   Route::get('/settings', [SettingsController::class, 'edit'])->name('settings.edit');
   Route::patch('/settings', [SettingsController::class, 'update'])->name('settings.update');
