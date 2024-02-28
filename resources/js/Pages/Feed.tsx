@@ -1,24 +1,26 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import { PageProps } from "@/types";
+import Post from "@/Components/Post";
 
-export default function Dashboard({ auth }: PageProps) {
+export default function Feed({ auth }: PageProps) {
   return (
     <AuthenticatedLayout
       user={auth.user}
       header={
         <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-          Dashboard
+          Feed
         </h2>
       }
     >
-      <Head title="Dashboard" />
+      <Head title="Feed" />
 
-      <div className="py-12">
-        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div className="p-6 text-gray-900">You're logged in!</div>
-          </div>
+      <div className="py-12 max-w-screen-sm mx-auto">
+        <div className="space-y-8">
+          <Post />
+          <Post />
+          <Post />
+          <Post />
         </div>
       </div>
     </AuthenticatedLayout>
