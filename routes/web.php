@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/feed', function () {
-  return Inertia::render('Feed');
+  return Inertia::render('Feed/Display');
 })->middleware(['auth', 'verified'])->name('feed');
 
 Route::get('/profile', function () {

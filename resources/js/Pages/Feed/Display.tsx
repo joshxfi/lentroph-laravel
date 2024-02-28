@@ -2,6 +2,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import { PageProps } from "@/types";
 import Post from "@/Components/Post";
+import AddPost from "./Partials/AddPost";
 
 export default function Feed({ auth }: PageProps) {
   return (
@@ -16,6 +17,8 @@ export default function Feed({ auth }: PageProps) {
       <Head title="Feed" />
 
       <div className="py-12 max-w-screen-sm mx-auto">
+        <AddPost />
+
         <div className="space-y-8">
           <Post />
           <Post />
