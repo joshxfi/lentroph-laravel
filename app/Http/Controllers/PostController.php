@@ -34,4 +34,17 @@ class PostController extends Controller
 
     return Redirect::route('feed');
   }
+
+  public function destroy(StorePostRequest $request): RedirectResponse
+  {
+    $post = Post::find($request->postId);
+
+    if (!$post) {
+      return redirect()->route('feed')->with('error', 'Post not found.');
+    }
+
+    $post->delete();
+
+    return redirect()->route('feed')->with('success', 'Post deleted successfully.');
+  }
 }

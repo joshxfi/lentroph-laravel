@@ -1,16 +1,19 @@
-import React from "react";
 import {
   Card,
   CardHeader,
   CardBody,
   CardFooter,
   Avatar,
-  Button,
 } from "@nextui-org/react";
+import PostDropdown from "./PostDropdown";
 
-export default function Post({ content }: { content?: string }) {
-  const [isFollowed, setIsFollowed] = React.useState(false);
-
+export default function Post({
+  postId,
+  content,
+}: {
+  postId: number;
+  content?: string;
+}) {
   return (
     <Card className="p-4">
       <CardHeader className="justify-between">
@@ -30,20 +33,7 @@ export default function Post({ content }: { content?: string }) {
             </h5>
           </div>
         </div>
-        <Button
-          className={
-            isFollowed
-              ? "bg-transparent text-foreground border-default-200"
-              : ""
-          }
-          color="secondary"
-          radius="full"
-          size="sm"
-          variant={isFollowed ? "bordered" : "flat"}
-          onPress={() => setIsFollowed(!isFollowed)}
-        >
-          {isFollowed ? "Unfollow" : "Follow"}
-        </Button>
+        <PostDropdown postId={postId} />
       </CardHeader>
       <CardBody className="px-3 text-base text-default-400">
         <p>

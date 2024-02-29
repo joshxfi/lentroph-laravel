@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
   Route::delete('/settings', [SettingsController::class, 'destroy'])->name('settings.destroy');
 
   Route::post('/post', [PostController::class, 'store'])->name('post.store');
+  Route::delete('/post', [PostController::class, 'destroy'])->name('post.destroy');
 });
 
 require __DIR__ . '/auth.php';

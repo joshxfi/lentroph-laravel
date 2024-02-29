@@ -28,10 +28,8 @@ export default function Feed({ auth, posts }: PageProps) {
         <div className="space-y-8">
           {/* @ts-ignore */}
           {posts.reverse().map((post: Post) => (
-            <Post key={post.id} content={post.content} />
+            <Post key={post.id} postId={post.id} content={post.content} />
           ))}
-          <Post />
-          <Post />
         </div>
       </div>
     </AuthenticatedLayout>
